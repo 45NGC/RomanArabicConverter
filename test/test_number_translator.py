@@ -1,5 +1,42 @@
 import pytest
-from src.number_translator import number_translator
+from number_translator import number_translator
+
+
+# DECIMAL TO ROMAN TEST
+def test_decimal_to_roman_basic_symbols():
+    assert number_translator(1) == 'I'
+    assert number_translator(5) == 'V'
+    assert number_translator(10) == 'X'
+    assert number_translator(50) == 'L'
+    assert number_translator(100) == 'C'
+    assert number_translator(500) == 'D'
+    assert number_translator(1000) == 'M'
+
+def test_decimal_to_roman_addition_rule():
+    assert number_translator(2) == 'II'
+    assert number_translator(6) == 'VI'
+    assert number_translator(15) == 'XV'
+    assert number_translator(160) == 'CLX'
+    assert number_translator(1600) == 'MDC'
+
+def test_decimal_to_roman_subtraction_rule():
+    assert number_translator(4) == 'IV'
+    assert number_translator(9) == 'IX'
+    assert number_translator(40) == 'XL'
+    assert number_translator(90) == 'XC'
+    assert number_translator(400) == 'CD'
+    assert number_translator(900) == 'CM'
+
+def test_decimal_to_roman_complex_numbers():
+    assert number_translator(14) == 'XIV'
+    assert number_translator(19) == 'XIX'
+    assert number_translator(1990) == 'MCMXC'
+    assert number_translator(2008) == 'MMVIII'
+    assert number_translator(1666) == 'MDCLXVI'
+    assert number_translator(1999) == 'MCMXCIX'
+    assert number_translator(444) == 'CDXLIV'
+    assert number_translator(999) == 'CMXCIX'
+    assert number_translator(3999) == 'MMMCMXCIX'
 
 
 # ROMAN TO DECIMAL TEST
