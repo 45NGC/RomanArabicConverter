@@ -2,6 +2,13 @@ import pytest
 from number_translator import number_translator
 
 
+
+def test_incorrect_input():
+    assert number_translator("X5") == "INCORRECT INPUT"
+    assert number_translator("AB") == "INCORRECT INPUT"
+
+
+
 # DECIMAL TO ROMAN TEST
 def test_decimal_to_roman_basic_symbols():
     assert number_translator(1) == 'I'
@@ -37,6 +44,7 @@ def test_decimal_to_roman_complex_numbers():
     assert number_translator(444) == 'CDXLIV'
     assert number_translator(999) == 'CMXCIX'
     assert number_translator(3999) == 'MMMCMXCIX'
+
 
 
 # ROMAN TO DECIMAL TEST
