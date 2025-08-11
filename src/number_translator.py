@@ -48,8 +48,25 @@ def arabic_to_roman(arabic_number):
 
 
 def roman_to_arabic(roman_number):
-    pass
-    
+    value_map = {
+        "M": 1000, "D": 500, "C": 100, "L": 50,
+        "X": 10, "V": 5, "I": 1
+    }
+
+    arabic_number = 0
+    prev_value = 0
+
+    for char in reversed(roman_number):
+
+        value = value_map[char]
+        if value < prev_value:
+            arabic_number -= value
+        else:
+            arabic_number += value
+            prev_value = value
+
+    return arabic_number
+
 
 
 
