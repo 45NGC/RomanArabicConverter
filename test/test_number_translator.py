@@ -7,6 +7,26 @@ def test_incorrect_input():
     assert number_translator("X5") == "INCORRECT INPUT"
     assert number_translator("AB") == "INCORRECT INPUT"
 
+def test_invalid_roman_numbers():
+    assert number_translator("IIII") == "INVALID ROMAN NUMBER"
+    assert number_translator("VV") == "INVALID ROMAN NUMBER"
+    assert number_translator("IC") == "INVALID ROMAN NUMBER"
+    assert number_translator("XM") == "INVALID ROMAN NUMBER"
+    assert number_translator("IL") == "INVALID ROMAN NUMBER"
+
+def test_arabic_out_of_range():
+    assert number_translator(0) == "OUT OF RANGE (1-3999)"
+    #assert number_translator(-5) == "OUT OF RANGE (1-3999)"
+    assert number_translator(4000) == "OUT OF RANGE (1-3999)"
+
+def test_mixed_invalid_inputs():
+    assert number_translator("X5") == "INCORRECT INPUT"
+    assert number_translator("10X") == "INCORRECT INPUT"
+
+def test_non_numeric_non_roman():
+    assert number_translator("ABC") == "INCORRECT INPUT"
+    assert number_translator("HELLO") == "INCORRECT INPUT"
+
 
 
 # DECIMAL TO ROMAN TEST
